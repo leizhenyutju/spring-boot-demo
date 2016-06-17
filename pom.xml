@@ -5,6 +5,7 @@
 	<artifactId>spring-boot-demo</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
+	
 	<name>spring.boot.demo</name>
 
 	<parent>
@@ -12,7 +13,7 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.2.4.RELEASE</version>
 	</parent>
-
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- 这里一定要配置上java的版本，如果是1.7版本的可不用配置 -->
