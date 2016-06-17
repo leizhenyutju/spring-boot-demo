@@ -3,7 +3,7 @@ package springBootDemo.entry;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
-import springBootDemo.action.HelloWorldAction;
+import springBootDemo.action.GreetingController;
 
 @SpringBootApplication
 public class Application_API {
@@ -15,7 +15,7 @@ public class Application_API {
 		 */
 		new SpringApplicationBuilder()
 	    .showBanner(false)
-	    .sources(HelloWorldAction.class)
+	    .sources(GreetingController.class)
 	    .child(Application_API.class)
 	    .run(args);
 	}

@@ -18,5 +18,7 @@ public class Application_Custom {
 		  app.addListeners(new TestListener());
 		  app.setShowBanner(false);
 		  app.run(args);
+		  
+		  
 	}
 }
