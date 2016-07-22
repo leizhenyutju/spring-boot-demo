@@ -1,0 +1,29 @@
+buildscript {
+repositories { 
+    mavenCentral()
+    maven { url "http://repo.spring.io/snapshot" }
+
+}
+dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.1.BUILD-SNAPSHOT")
+}
+
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'spring-boot'
+apply plugin: 'war'
+
+repositories {
+    maven { url "http://repo.spring.io/snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile 'org.springframework:spring-webmvc:3.2.2.RELEASE'
+    compile 'jstl:jstl:1.2'
+    providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper'
+}

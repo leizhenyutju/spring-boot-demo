@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<!-- 	<properties resource="jdbc.properties" /> -->
+	<settings>
+		<!-- 开启驼峰匹配 -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+	<!-- 批量设置别名 -->
+<!-- 	<typeAliases> -->
+<!-- 		<package name="com.zhuawa.manage.pojo" /> -->
+<!-- 	</typeAliases> -->
+	
+	<plugins>
+	    <!-- 注意配置插件的顺序，分页助手在前面，通用Mapper在后面 -->
+		<plugin interceptor="com.github.pagehelper.PageHelper">
+			<property name="dialect" value="mysql" />
+			<!-- 设置为true时，使用RowBounds分页会进行count查询 -->
+			<property name="rowBoundsWithCount" value="true" />
+		</plugin>
+
+		<plugin interceptor="tk.mybatis.mapper.mapperhelper.MapperInterceptor">
+			<!--主键自增回写方法,默认值MYSQL,详细说明请看文档 -->
+			<property name="IDENTITY" value="MYSQL" />
+			<!--通用Mapper接口，多个通用接口用逗号隔开 -->
+			<property name="mappers" value="tk.mybatis.mapper.common.Mapper" />
+		</plugin>
+
+	</plugins>
+	
+	<!-- 配置数据库连接的环境 -->
+<!-- 	<environments default="development"> -->
+<!-- 		<environment id="development"> -->
+<!-- 			<transactionManager type="JDBC" /> -->
+<!-- 			<dataSource type="POOLED"> -->
+<!-- 				<property name="driver" value="${jdbc.driver}" /> -->
+<!-- 				<property name="url" value="${jdbc.url}" /> -->
+<!-- 				<property name="username" value="${jdbc.username}" /> -->
+<!-- 				<property name="password" value="${jdbc.password}" /> -->
+<!-- 			</dataSource> -->
+<!-- 		</environment> -->
+<!-- 	</environments> -->
+<!-- 	<mappers> -->
+<!-- 		<package name="com.zhuawa.manage.mapper" /> -->
+<!-- 	</mappers> -->
+
+</configuration>

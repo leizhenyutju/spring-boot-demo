@@ -1,6 +1,7 @@
-package springBootDemo.dao;
+package springBootDemo.entity;
 
-public class UserDao {
+@SuppressWarnings("serial")
+public class User  extends BaseEntity{
 
 	private Long id;
 	

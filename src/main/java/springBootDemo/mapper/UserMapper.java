@@ -1,15 +1,9 @@
 package springBootDemo.mapper;
 
-import java.util.List;
+import springBootDemo.entity.User;
 
-import springBootDemo.common.BaseCommonMapper;
-import springBootDemo.dao.UserDao;
 
-public interface UserMapper extends BaseCommonMapper<UserDao>{
+public interface UserMapper extends BaseMapper<User>{
 
-	public UserDao getById(Long id);
 	
-	public String getNameById(Long id);
-	
-	public List<UserDao> queryAll();
 }

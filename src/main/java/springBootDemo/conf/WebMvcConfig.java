@@ -24,14 +24,19 @@
 
 package springBootDemo.conf;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
  * @author liuzh_3nofxnp
  * @since 2015-12-19 16:16
  */
+@EnableWebMvc
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
@@ -40,6 +45,20 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
+
+    @Bean
+    public InternalResourceViewResolver viewResolver() {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("WEB-INF/views/");
+        resolver.setSuffix(".jsp");
+        resolver.setCache(false);
+        resolver.setOrder(2);
+        return resolver;
+    }
 //    @Override
 //    public void configureViewResolvers(ViewResolverRegistry registry) {
 //        registry.enableContentNegotiation(new MappingJackson2JsonView());

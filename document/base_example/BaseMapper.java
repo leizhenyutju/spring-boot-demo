@@ -22,67 +22,17 @@
  * THE SOFTWARE.
  */
 
-* {
-    margin: 0;
-}
+package base_example;
 
-html, body {
-    height: 100%;
-}
+import tk.mybatis.mapper.common.Mapper;
+import tk.mybatis.mapper.common.MySqlMapper;
 
-.wrapper {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -155px;
-}
-
-.footer, .push {
-    height: 155px;
-}
-
-table.gridtable {
-    font-family: verdana, arial, sans-serif;
-    font-size: 11px;
-    color: #333333;
-    border-width: 1px;
-    border-color: #666666;
-    border-collapse: collapse;
-    margin: 5px auto;
-}
-
-table.gridtable th {
-    border-width: 1px;
-    padding: 8px;
-    border-style: solid;
-    border-color: #666666;
-    background-color: #dedede;
-}
-
-table.gridtable td {
-    border-width: 1px;
-    padding: 8px;
-    border-style: solid;
-    border-color: #666666;
-    background-color: #ffffff;
-}
-
-.middle {
-    text-align: center;
-    margin: 0 auto;
-    width: 800px;
-    height: auto;
-}
-
-.info {
-    font-size: 12px;
-    text-align: center;
-    line-height: 20px;
-    padding: 40px;
-}
-
-.info a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: green;
+/**
+ * 继承自己的MyMapper
+ *
+ * @author liuzh
+ * @since 2015-09-06 21:53
+ */
+public interface BaseMapper<T extends BaseEntity> extends Mapper<T>, MySqlMapper<T> {
+    //FIXME 特别注意，该接口不能被扫描到，否则会出错
 }
