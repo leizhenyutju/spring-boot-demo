@@ -10,7 +10,7 @@ import springBootDemo.mapper.StudentDao;
 public class StudentService {
 
 		@Autowired
-	   private StudentDao studentDao; 
+	   public StudentDao studentDao; 
 
 
 	    public String show(){
